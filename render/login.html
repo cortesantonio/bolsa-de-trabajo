@@ -37,21 +37,35 @@
                         </div>
                         <div class="logForm" id="LogTrabajadorForm">
                             <form action="" method="post">
-                                <input type="text" name="" placeholder="Usuario o Correo" id="">
+                                <input type="text" name="" placeholder="Usuario o Correo de Trabajador" id="">
                                 <input type="password" name="" id="" placeholder="Password">
                                 <Button type="submit">Iniciar Sesion</Button>
-                                <br>
-                                <a href="">Registrarse</a>
                             </form>
-                            <div class="logForm" id="logEmpleadoForm" style="display: none;">
-                                <form action="" method="post">
-                                    <input type="text" name="" placeholder="Usuario o Correo" id="">
-                                    <input type="password" name="" id="" placeholder="Password">
-                                    <Button type="submit">Iniciar Sesion</Button>
-                                    <br>
-                                    <a href="">Registrarse</a>
-                                </form>
-                            </div>
+                            <button id="registrarTrabajador">
+                                Registrase
+                            </button>
+                        </div>
+                        <div class="regForm" id="registrarTrabajadorForm" style="display:none;">
+                            <form action="" method="post">
+                                <input type="text" name="" placeholder="Correo" id="">
+                                <input type="text" name="" placeholder="RUT" id="">
+                                <input type="text" name="" placeholder="Nombre Completo" id="">
+                                <input type="text" name="" placeholder="Direccion" id="">
+                                <input type="date" name="" placeholder="Fecha Nacimiento"  id="">                            
+                                <input type="password" name="" id="" placeholder="Password">
+                                <Button type="submit">Iniciar Sesion</Button>
+                            </form>
+                            
+                        </div>
+
+                        <div class="logForm" id="logEmpleadorForm" style="display: none;">
+                            <form action="" method="post">
+                                <input type="text" name="" placeholder="Usuario o Correo de Empresa" id="">
+                                <input type="password" name="" id="" placeholder="Password">
+                                <Button type="submit">Iniciar Sesion</Button>
+                            </form>
+                            <a href="">Registrarse</a>
+
                         </div>
                     </div>
                 </div>
