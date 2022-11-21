@@ -1,0 +1,195 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inicio {
+    background-color: #FCA311;
+    width: 100%;
+    height: 80vh;
+    box-sizing: border-box;
+    padding: 25px 50px 10px 50px;
+
+}
+
+.inicio>nav {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inicio .accesoLogin>a {
+    font-size: 1.7rem;
+    color: #ffffff;
+    font-weight: 100;
+}
+
+.inicio>.grid {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    width: 100%;
+    margin-top: 40px;
+
+}
+
+.grid>div {
+    width: 100%;
+}
+
+.grid1 form {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.grid1 h2 {
+    font-size: 5rem;
+    font-weight: 300;
+    margin-top: 100px;
+}
+
+.grid1 p {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.grid1 form input {
+    width: 100%;
+    height: 45PX;
+    margin-bottom: 10px;
+}
+
+.grid1 form select {
+    width: 25%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.grid1 form input:focus {
+    outline: none;
+
+}
+
+.grid1 form button {
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    font-size: 32px;
+    margin-left: 10px;
+    font-weight: 100;
+    color:#FFFFFF;
+    cursor: pointer;
+}
+
+.imginicio {
+    text-align: center;
+}
+
+.imginicio img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+
+.ultimasPublicaciones {
+    width: 60%;
+    margin: 100px auto;
+    text-align: center;
+}
+.ultimasPublicaciones h2{
+    font-size: 2.5rem ;
+    font-weight: 400;
+}
+
+.ultimasPublicaciones .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 100px;
+    gap: 25px;
+}
+.ultimasPublicaciones .grid> a {
+    width: 30%;
+    margin: 20px auto;
+    border: 1px solid ;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
+
+}
+
+.ultimasPublicaciones .grid>.card {
+    width: 100%;
+    height: 120px;
+    padding-left: 20px;
+    border-radius: 15px;
+    margin: auto;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.368);
+}
+
+.grid>.card .fecha {
+    color: gray;
+    font-size: 12px;
+}
+
+.grid>.card .titulo {
+    font-size: 26px;
+    font-weight: 100;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.grid>.card a {
+    text-decoration: none;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #FCA311;
+}
+
+.grid>.card .c3 {
+    display: flex;
+    margin: 20px;
+    gap: 5px;
+}
+
+.grid>.card .c3 .imgempresa {
+    opacity: 80%;
+}
+.grid>.card .c1,
+.grid>.card .c2,
+.grid>.card .c3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.grid>.card .c3 .nombreempresa {
+    font-size: 15px;
+    font-weight: bold;
+    color: gray;
+}
+
+.grid>.card .c3 .ubicacion {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+}
+footer .info{
+}

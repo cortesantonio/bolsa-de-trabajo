@@ -6,16 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Bolsa de Trabajo</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="backButton">
+            <a href="index.html">
+                <i class="fa-solid fa-chevron-left"></i> 
+                Volver Atras
+            </a>
+
+        </div>
         <div class="login">
             <div class="bnv">
-                <div class="img"><img
-                        src="https://www.curriculumnacional.cl/614/articles-180958_imagen_portada.thumb_iNormal.jpg"
-                        alt="" width="100px">
+                <div class="img"><img src="static/img/logo.png" alt="" width="130px">
                 </div>
                 <div class="titlebnv">
                     <h1>Bienvenido!</h1>
@@ -37,7 +45,7 @@
                         </div>
                         <div class="logForm" id="LogTrabajadorForm">
                             <form action="" method="post">
-                                <input type="text" name="" placeholder="Usuario o Correo de Trabajador" id="">
+                                <input type="text" name="" placeholder="Usuario / Correo de Trabajador" id="">
                                 <input type="password" name="" id="" placeholder="Password">
                                 <Button type="submit">Iniciar Sesion</Button>
                             </form>
@@ -51,21 +59,44 @@
                                 <input type="text" name="" placeholder="RUT" id="">
                                 <input type="text" name="" placeholder="Nombre Completo" id="">
                                 <input type="text" name="" placeholder="Direccion" id="">
-                                <input type="date" name="" placeholder="Fecha Nacimiento"  id="">                            
+                                <input type="date" name="" placeholder="Fecha Nacimiento" id="">
                                 <input type="password" name="" id="" placeholder="Password">
-                                <Button type="submit">Iniciar Sesion</Button>
+                                <input required type="checkbox" name="terminosYcondiciones" id="">
+                                <label for="terminosYcondiciones">Acepto los <a href="">terminos y
+                                        condiciones.</a></label>
+                                <Button type="submit">Registrarse</Button>
                             </form>
-                            
+
+
                         </div>
 
                         <div class="logForm" id="logEmpleadorForm" style="display: none;">
                             <form action="" method="post">
-                                <input type="text" name="" placeholder="Usuario o Correo de Empresa" id="">
+                                <input type="text" name="" placeholder="Usuario / Correo de Empresa" id="">
                                 <input type="password" name="" id="" placeholder="Password">
                                 <Button type="submit">Iniciar Sesion</Button>
                             </form>
-                            <a href="">Registrarse</a>
+                            <button id="registrarEmpleador">
+                                Registrase
+                            </button>
 
+                        </div>
+                        <div class="regForm" id="registrarEmpleadorForm" style="display:none;">
+                            <form action="" method="post">
+                                <input type="text" name="" placeholder="Correo" id="">
+                                <input type="text" name="" placeholder="Razon Social" id="">
+                                <input type="text" name="" placeholder="RUT Representante" id="">
+                                <input type="password" name="" id="" placeholder="Password">
+                                <div style="text-align: left; padding-left:10px; margin-top: 20px;">
+                                    <input type="checkbox" name="empresaConstituida" id="">
+                                    <label for="empresaConstituida">Soy empresa constituida.</label>
+                                    <br>
+                                    <input required type="checkbox" name="terminosYcondiciones" id="">
+                                    <label for="terminosYcondiciones">Acepto los <a href="">terminos y
+                                            condiciones.</a></label>
+                                </div>
+                                <Button type="submit">Registrarse</Button>
+                            </form>
                         </div>
                     </div>
                 </div>

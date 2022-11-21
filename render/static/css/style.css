@@ -11,17 +11,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 .login {
-    width: 80%;
-    height: 80vh;
+    width: 70%;
+    height: 70vh;
     margin: auto;
-    border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 15px;
     padding: 30px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(315deg, #FBAB7E 53%, #F7CE68 100%);
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.18);
+
 
 }
 
@@ -39,13 +43,19 @@
 .titlebnv h1 {
     font-weight: 100;
     font-size: 5rem;
+    color: #14213D;
 }
 
 .bnv hr {
     width: 25%;
     height: 5px;
-    background-color: black;
-    border-radius: 4px;
+    background-color: #14213D;
+    border: #14213D;
+    border-radius: 10px;
+}
+
+.bnv p {
+    color: #14213D;
 }
 
 .LogInp {
@@ -58,8 +68,8 @@
 
 .containerLog {
     width: 70%;
-    height: 70%;
-    border: 1px solid black;
+    min-height: 70%;
+    background-color: #FFFFFF;
     margin: auto;
     border-radius: 20px;
     text-align: center;
@@ -70,52 +80,111 @@
 .opcionesLog {
 
     display: flex;
-    justify-content: center;
+    width: 90%;
+    justify-content: space-between;
     margin-top: 30px;
 }
 
 .opcionesLog>div {
+    width: 35%;
     padding: 5px;
     cursor: pointer;
 }
 
 .logForm {
-    background-color: rgba(161, 161, 161, 0.552);
+    border: 1px solid #E5E5E5;
+
+    box-sizing: border-box;
     width: 90%;
+    padding: 10px;
 }
 
 .logForm form>input {
     display: block;
     margin: auto;
     padding: 10px;
-    width: 50%;
+    width: 90%;
     margin-top: 20px;
     margin-bottom: 20px;
 
+    border: none;
+    border-bottom: 1px solid #14213D;
+    background-color: transparent;
+
 }
 
+.logForm form>input::placeholder {
+    color: #14213D;
+}
+
+.logForm form>input:focus {
+    outline: none;
+}
+
+
+
+
+
+
+
 .regForm {
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
     width: 90%;
-    background-color: rgba(161, 161, 161, 0.552);
+    padding: 10px;
+
 }
 
 .regForm form>input {
     display: block;
     margin: auto;
-    padding: 5px;
-    width: 50%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding: 3px;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
+    border: none;
+    border-bottom: 1px solid #14213D;
+    background-color: transparent;
 }
 
-.logForm>form>button {
+.regForm form input[type=checkbox] {
+    display: inline;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    width: 15px;
+    text-align: left;
+}
+
+
+
+.logForm>form>button,
+.regForm form>button {
     width: 40%;
-    padding: 5px;
+    padding: 7px;
+    background-color: #14213D;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+.logForm>button {
+    color: #14213D;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #14213D;
 }
 
 #logTrabajador {
-    background-color: rgba(161, 161, 161, 0.552);
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
 }
 
 .bodyLog {
@@ -123,4 +192,21 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+}
+
+.backButton{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #14213D;
+}
+.backButton>a{
+    text-decoration: none;
+    color: #0000007e;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+.backButton>a>i{
+    font-size: 1.5rem;
+    font-weight: 100px;
 }
