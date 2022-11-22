@@ -257,6 +257,8 @@ form .gridinfo p input[type='number'] {
 
 }
 
+
+
 .anuncio hr {
     width: 90%;
     margin: auto;
@@ -269,15 +271,17 @@ form .gridinfo p input[type='number'] {
     display: flex;
     justify-content: space-between;
 }
-.header .fecha{
+
+.header .fecha {
     color: rgba(128, 128, 128, 0.577);
     font-weight: 600;
 }
 
-.header .titulo{
+.header .titulo {
     font-size: 1.5rem;
 }
-.header .fav{
+
+.header .fav {
     font-size: 1.5rem;
 }
 
@@ -300,28 +304,37 @@ form .gridinfo p input[type='number'] {
     margin-bottom: 30px;
 
 }
-
-
-
-.grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: left;
-    gap: 20px;
+.anuncioEdit {
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-.grid2{
-    display: grid;
-    grid-template-columns: 7fr 1fr;
-    text-align: left;
-    gap: 20px;
+
+.anuncioEdit hr {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
-.acciones>button{
-    width: 100%;
+
+.anuncioEdit .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.anuncioEdit .descripcion h4 {
+    margin-top: 20px;
     margin-bottom: 10px;
-    padding: 5px;
-
+    text-align: left;
 }
-.grid h4{
-    display: inline;
+
+.anuncioEdit .descripcion .text {
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 30px;
+
 }
