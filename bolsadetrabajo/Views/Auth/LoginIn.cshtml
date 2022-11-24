@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="logForm" id="logEmpleadorForm" style="display: none;">
-                            <form asp-action="" method="post">
+                            <form asp-action="LoginInEmpresa" method="post">
                                 <input type="text" name="CorreoEmpresa" asp-action="" placeholder="Correo de Empresa" id="">
                                 <input type="password" name="PasswordEmpresa" id="" placeholder="Password">
                                 <Button type="submit">Iniciar Sesion</Button>
@@ -93,7 +93,7 @@
 
                         </div>
                         <div class="regForm" id="registrarEmpleadorForm" style="display:none;">
-                            <form action="" method="post">
+                            <form asp-action="RegistrarEmpresa" method="post">
                                 <input type="text" name="CorreoEmpresa_reg" placeholder="Correo" id="">
                                 <input type="text" name="RazonSocialEmpresa_reg" placeholder="Razon Social" id="">
                                 <input type="text" name="RutRepresentanteEmpresa_reg" placeholder="RUT Representante" id="">
