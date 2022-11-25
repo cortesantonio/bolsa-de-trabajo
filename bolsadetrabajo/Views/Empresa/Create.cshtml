@@ -26,9 +26,9 @@
             <div class="logo"><img src="~/img/logo.png" width="120px" alt=""></div>
             <div class="acciones">
 
-                <a href="">Inicio</a>
+                <a asp-action="Index" asp-controller="Home">Inicio</a>
 
-                <a href="" style="background-color: transparent;color:white;">Cerrar Sesion</a>
+                <a asp-action="LogOut" asp-controller="Auth" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -43,10 +43,11 @@
         </svg>
     </div>
     <div class="container">
-        <h2>Razon Social.</h2>
+        <h2>@ViewBag.empresaNombre</h2>
         <form asp-action="AddPublicacion" asp-controller="Publicacion" method="POST">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+            <input asp-for="EmpresaId" type="hidden" name="EmpresaId" value="@ViewBag.empresaid">
+            <input asp-for="Fecha" type="hidden" name="Fecha" value="@ViewBag.fecha">
             <div class="anuncio anuncionew" style="margin-top: 40px;">
                 <div class="header">
                     <h3>
@@ -74,7 +75,11 @@
                     <div class="jornada">
                         <h4>Jornada:</h4>
                         <select name="TipoJornada" id="" asp-for="TipoJornada">
-                            <option  value="-">Tipo de Jornada</option>
+                            <option  value="No especificado">Tipo de Jornada</option>
+                            <option  value="Completa">Completa</option>
+                            <option  value="Part-Time">Part-Time</option>
+
+
                         </select>
                         <span asp-validation-for="TipoJornada" class="text-danger"></span>
 
@@ -98,8 +103,12 @@
 
                     <div class="grid_editPubli">
                         <div class="contrato">
-                            <h4> Tipo Contrato:</h4> <select asp-for="TipoContrato" name="TipoContrato" id="">
-                                <option value="">Tipo de Contrato</option>
+                            <h4> Tipo Contrato:</h4>
+                            <select asp-for="TipoContrato" name="TipoContrato" id="">
+                                <option value="No especificado" >Tipo de Contrato</option>
+                                <option value="Por obra/Faena">Por obra/Faena</option>
+                                <option value="Indefinido">Indefinido</option>
+                                <option value="Plazo Fijo">Plazo Fijo</option>
                                 <span asp-validation-for="TipoContrato" class="text-danger"></span>
 
                             </select>
@@ -125,7 +134,6 @@
                         <div></div>
                         <div></div>
                     </div>
-
 
                 </footer>
 

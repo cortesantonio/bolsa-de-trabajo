@@ -1,9 +1,7 @@
-@model bolsadetrabajo.Models.Empresa;
-
-
 @{
     Layout = null;
 }
+@model List<Publicacion>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,10 +23,10 @@
             <div class="logo"><img src="~/img/logo.png" width="120px" alt=""></div>
             <div class="acciones">
 
-                <a href="">Inicio</a>
-                <a asp-action="Create">Publicar Anuncio</a>
+                <a asp-action="Index" asp-controller="Home">Inicio</a>
+                <a asp-action="Create" asp-controller="Empresa">Publicar Anuncio</a>
 
-                <a asp-controller="Auth" style="background-color: transparent;color:white;" asp-action="LogOut" class="dropdown-item">Cerrar Sesion</a>
+                <a asp-action="LogOut" asp-controller="Auth" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -43,52 +41,38 @@
         </svg>
     </div>
     <div class="container">
-        <h2>@Model.RazonSocial.</h2>
+        <h2>@ViewBag.razonsocial.</h2>
         <div class="grid">
             <aside>
                 <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
-                <a asp-action="ViewPublicaciones" asp-controller="Empresa"><i class="fa-solid fa-list-ul"></i></a>
+                <a asp-action="ViewPublicaciones"><i class="fa-solid fa-list-ul"></i></a>
             </aside>
             <main>
                 <div class="flex">
                     <div class="titulo">
-                        <h3>Informacion de Empresa</h3>
+                        <h3>Anuncios</h3>
                     </div>
-                    <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
+                    <div class="newanuncio"><a asp-action="Create">Nuevo Anuncio</a></div>
                 </div>
-                <div class="gridinfo">
-                    <div class="nombrecompleto">
-                        <h5>Razon Social</h5>
-                        <p>@Model.RazonSocial</p>
-                    </div>
-                    <div class="email">
-                        <h5>Email:</h5>
-                        <p>@Model.Email</p>
-                    </div>
-                    <div class="representante">
-                        <h5>Representante:</h5>
-                        <p>@Model.NombreRepresentante</p>
-                    </div>
-                    <div class="rutrepresentante">
-                        <h5>RUT de Representante:</h5>
-                        <p>@Model.RutRepresentante</p>
-                    </div>
-                    <div class="rut">
-                        <h5>RUT:</h5>
-                        <p>@Model.Rut</p>
-                    </div>
-                    <div class="contacto">
-                        <h5>Numero de Contacto:</h5>
-                        <p>@Model.NumeroContacto</p>
-                    </div>
-                    <div class="direccion">
-                        <h5>Direccion:</h5>
-                        <p>@Model.Direccion</p>
-                    </div>
+                <div class="gridPublicaciones" style="gap:10px;">
+                    @foreach (var item in Model){
+                    <div class="card">
+                        <div class="info">
+                            <div class="fecha">@item.Fecha</div>
+                            <div class="titulo">@item.Titulo</div>
+                            <div class="descripcion">@item.Descripcion</div>
+                        </div>
+                        <div class="acciones">
+                            <a asp-action="Index" asp-controller="Publicacion" asp-route-Id="@item.idPublicacion">Ver Anuncio</a>
+                            <a href="">Editar</a>
+                        </div>
+                        
+                    </div>}
                 </div>
-
-            </main>
         </div>
+
+        </main>
+    </div>
     </div>
     <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg"
             class="transition duration-300 ease-in-out delay-150">

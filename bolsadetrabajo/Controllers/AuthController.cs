@@ -72,7 +72,7 @@ namespace bolsadetrabajo.Controllers
                         new Claim(ClaimTypes.Role, "Trabajador")
                     };
 
-                    //Carnet, Licencia
+                    
                     var identity = new ClaimsIdentity(Claims,
                         CookieAuthenticationDefaults.AuthenticationScheme);
 

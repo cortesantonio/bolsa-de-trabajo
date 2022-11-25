@@ -23,8 +23,9 @@ namespace bolsadetrabajo.Controllers
             }
             else
             {
-                var publi = _context.Empresa
-               .Include(p => p.idEmpresa)
+                var publi = _context.Publicacion
+               .Include(p => p.Empresa)
+               .Where(x => x.idPublicacion == Id)
                .FirstOrDefault();
 
                 return View(publi);
