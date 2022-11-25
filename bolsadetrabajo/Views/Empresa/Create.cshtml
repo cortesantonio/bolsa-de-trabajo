@@ -57,7 +57,7 @@
                 </div>
                 <div class="header" style="justify-content:center;">
                     <div class="titulo">
-                        <input asp-for="Titulo" type="text" name="" placeholder="Titulo" id="">
+                        <input asp-for="Titulo" type="text" name="Titulo" placeholder="Titulo" id="">
                         <span asp-validation-for="Titulo" class="text-danger"></span>
                     </div>
 
@@ -65,7 +65,7 @@
 
                 <div class="header" style="justify-content:center;">
                     <div class="area">
-                        <input asp-for="Area" type="text" placeholder="Area" name="" id="">
+                        <input asp-for="Area" type="text" placeholder="Area" name="Area" id="">
                         <span asp-validation-for="Area" class="text-danger"></span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="grid_editPubli">
                     <div class="jornada">
                         <h4>Jornada:</h4>
-                        <select name="" id="" asp-for="TipoJornada">
+                        <select name="TipoJornada" id="" asp-for="TipoJornada">
                             <option  value="-">Tipo de Jornada</option>
                         </select>
                         <span asp-validation-for="TipoJornada" class="text-danger"></span>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="ubicacion">
-                        <h4>Ubicacion:</h4> <input asp-for="Ubicacion" type="text" name="">
+                        <h4>Ubicacion:</h4> <input asp-for="Ubicacion" type="text" name="Ubicacion">
                         <span asp-validation-for="Ubicacion" class="text-danger"></span>
 
                     </div>
@@ -89,7 +89,7 @@
                 <div class="descripcion">
                     <h4>Descripcion:</h4>
                     <div class="text">
-                        <textarea asp-for="Descripcion" name="" id="" cols="100%" rows="10"></textarea>
+                        <textarea asp-for="Descripcion" name="Descripcion" id="" cols="100%" rows="10"></textarea>
                         <span asp-validation-for="Descripcion" class="text-danger"></span>
     
                     </div>
@@ -98,7 +98,7 @@
 
                     <div class="grid_editPubli">
                         <div class="contrato">
-                            <h4> Tipo Contrato:</h4> <select asp-for="TipoContrato" name="" id="">
+                            <h4> Tipo Contrato:</h4> <select asp-for="TipoContrato" name="TipoContrato" id="">
                                 <option value="">Tipo de Contrato</option>
                                 <span asp-validation-for="TipoContrato" class="text-danger"></span>
 
@@ -106,23 +106,19 @@
                         </div>
                         <div class="experiencia">
                             <h4>Experiencia:</h4> 
-                            <input type="number" asp-for="Experiencia" placeholder="Años de experiencia requeridos" name="" id="">
+                            <input type="number" asp-for="Experiencia" placeholder="Años de experiencia requeridos" name="Experiencia" id="">
                             <span asp-validation-for="Experiencia" class="text-danger"></span>
 
 
                         </div>
                         <div class="vacantes">
-                            <h4>Vacantes:</h4> <input asp-for="NumeroVacantes" type="number">
+                            <h4>Vacantes:</h4> <input name="NumeroVacantes" asp-for="NumeroVacantes" type="number">
                             <span asp-validation-for="NumeroVacantes" class="text-danger"></span>
 
                         </div>
-                        <div class="educacion">
-                            <h4>Nivel de Educacion:</h4> <select name="" id="">
-                                <option value="">Nivel de educacion</option>
-                            </select>
-                        </div>
+                       
                         <div class="sueldo">
-                            <h4>Sueldo:</h4> <input asp-for="Sueldo" type="number" name="" placeholder="$" id="">
+                            <h4>Sueldo:</h4> <input asp-for="Sueldo" type="number" name="Sueldo" placeholder="$" id="">
                             <span asp-validation-for="Sueldo" class="text-danger"></span>
 
                         </div>

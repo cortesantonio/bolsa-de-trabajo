@@ -53,23 +53,38 @@ Layout = null;
                     </div>
                 </div>
                 <form asp-action="TrabajadorEditar"  method="post">
+                    <input type="hidden" asp-for="idTrabajador" value="@Model.idTrabajador" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                     <div class="gridinfo">
-                        <input asp-for="idTrabajador" type="text" value="@Model.idTrabajador">
+
                         <div class="nombrecompleto">
                             <h5>Nombre Completo:</h5>
-                            <p><input asp-for="Nombre" type="text" value="@Model.Nombre"></p>
+                            <p>
+                                <input asp-for="Nombre" name="Nombre" type="text" value="@Model.Nombre">
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+
+                                </p>
                         </div>
                         <div class="email">
                             <h5>Email:</h5>
-                            <p><input asp-for="Email" type="email" value="@Model.Email"></p>
+                            <p><input asp-for="Email" name="Email" type="email" value="@Model.Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </p>
                         </div>
                         <div class="nacimiento">
                             <h5>Fecha de Nacimiento:</h5>
-                            <p><input asp-for="FechaNacimiento" type="date" required></p>
+                            <p><input asp-for="FechaNacimiento" name="FechaNacimiento" type="date" required>
+                                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                            </p>
                         </div>
                         <div class="numero">
                             <h5>Numero de Contacto:</h5>
-                            <p><input type="number" asp-for="NumeroContacto" value="@Model.NumeroContacto"></p>
+                            <p>
+                                <input type="number" asp-for="NumeroContacto" name="NumeroContacto" value="@Model.NumeroContacto">
+                                <span asp-validation-for="NumeroContacto" class="text-danger"></span>
+                            </p>
                         </div>
                         <div class="sexo">
                             <h5>Sexo:</h5>
@@ -80,18 +95,24 @@ Layout = null;
                                 <input asp-for="Sexo" type="radio" name="Sexo" value="Hombre">
                                 <label for="Sexo" >Otros</label>
                                 <input asp-for="Sexo" type="radio" name="Sexo" value="Otros">
+                                <span asp-validation-for="Sexo" class="text-danger"></span>
 
                             </p>
                         </div>
                         <div class="profesion">
                             <h5>Profesion:</h5>
-                            <p><input type="text" asp-for="Profesion" value="@Model.Profesion"></p>
+                            <p><input type="text" asp-for="Profesion" name="Profesion" value="@Model.Profesion">
+                                <span asp-validation-for="Profesion" class="text-danger"></span>
+                            </p>
                         </div>
                         <div class="direccion">
                             <h5>Direccion:</h5>
-                            <p><input type="text" asp-for="Direccion" value="@Model.Direccion"></p>
+                            <p><input type="text" asp-for="Direccion" name="Direccion" value="@Model.Direccion">
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </p>
                         </div>
                         
+                      
                         
 
 

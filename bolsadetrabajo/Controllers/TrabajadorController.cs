@@ -37,33 +37,26 @@ namespace bolsadetrabajo.Controllers
                 return View(trabajador);
             }
         }
+
         [HttpPost]
-        public async Task<IActionResult> TrabajadorEditar(TrabajadorViewModel Tvm)
+        public IActionResult TrabajadorEditar(Trabajador T)
         {
+
             if (ModelState.IsValid)
             {
-                Trabajador T = new Trabajador();
-                T.idTrabajador = Tvm.idTrabajador;
-                T.Nombre = Tvm.Nombre;
-                T.FechaNacimiento = Tvm.FechaNacimiento;
-                T.NumeroContacto = Tvm.NumeroContacto;
-                T.Direccion = Tvm.Direccion;
-                T.Profesion = Tvm.Profesion;
-                T.Rut = Tvm.Rut;
-                T.Sexo = Tvm.Sexo;
-                T.Email = Tvm.Email;
-                
-
 
                 _context.Trabajador.Update(T);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _context.SaveChanges();
+                
+                return RedirectToAction("Index", "Trabajador"); 
             }
+
             else
             {
                 ModelState.AddModelError("", "Ha Ocurrido un Error!");
-                return View(Tvm);
+                return RedirectToAction("TrabajadorEdit", "Trabajador");
             }
+            
         }
 
     }

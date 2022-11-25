@@ -43,7 +43,7 @@ namespace bolsadetrabajo.Controllers
             else
             {
                 ModelState.AddModelError("", "Ha Ocurrido un Error!");
-                return View(P);
+                return RedirectToAction("Create", "Empresa");
             }
         }
 

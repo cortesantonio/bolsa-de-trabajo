@@ -6,7 +6,7 @@ namespace bolsadetrabajo.Models
     {
         [Key]
         public int idPublicacion { get; set; }
-        public string Fecha { get; set; }
+        public string? Fecha { get; set; }
         public string Titulo { get; set; }
         public string? Area { get; set; }
         public string? TipoJornada { get; set; }
@@ -16,7 +16,7 @@ namespace bolsadetrabajo.Models
         public int? NumeroVacantes { get; set; }
         public int? Sueldo { get; set; }
         public string? TipoContrato { get; set; }
-        public int EmpresaId { get; set; }
+        public int? EmpresaId { get; set; }
         public Empresa? Empresa { get; set; }
 
 
