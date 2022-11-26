@@ -47,6 +47,35 @@ namespace bolsadetrabajo.Controllers
                 return RedirectToAction("Create", "Empresa");
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> EditarPublicacion(Publicacion P)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Publicacion.Update(P);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Empresa");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Ha Ocurrido un Error!");
+                return RedirectToAction("EditPublicacion", "Empresa");
+            }
+        }
+        public IActionResult DeletePublicacion(int Id)
+        {
+            var P = _context.Publicacion.Find(Id);
+            if (P == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _context.Publicacion.Remove(P);
+                _context.SaveChanges();
+                return RedirectToAction("ViewPublicaciones","Empresa");
+            }
+        }
 
     }
 }

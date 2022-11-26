@@ -43,72 +43,82 @@ Layout = null;
         </svg>
     </div>
     <div class="container">
-        <h2>Razon Social.</h2>
+        <h2>@ViewBag.empresaNombre</h2>
         <div class="grid">
             <aside>
                 <a href=""><i class="fa-regular fa-user"></i></a>
                 <a href=""><i class="fa-solid fa-list-ul"></i></a>
             </aside>
             <main>
-                <form action="" method="get">
+                <form asp-action="EditarPublicacion" asp-controller="Publicacion" method="post">
+                    <input type="hidden" asp-for="idPublicacion" value="@Model.idPublicacion" />
+                    <input asp-for="EmpresaId" type="hidden" name="EmpresaId" value="@ViewBag.empresaid">
+                    <input asp-for="Fecha" type="hidden" name="Fecha" value="@ViewBag.fecha">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                     <div class="anuncioEdit" style="margin-top: 40px;">
                         <div class="header">
                             <h3>
                                 <i class="fa-regular fa-pen-to-square"></i>
                                 Editar Anuncio
                             </h3>
-                            <a href="">Eliminar Anuncio</a>
-
+                            <a asp-action="DeletePublicacion" onclick="return confirm('¿Estas Seguro?')" asp-controller="Publicacion" asp-route-Id="@Model.idPublicacion" style="background-color:#ff8f8f; border:none;">Eliminar Anuncio</a>
+                             
                         </div>
                         <div class="header" style="justify-content:center;">
-                            <div class="titulo"><input type="text" name="" placeholder="Titulo" id=""></div>
+                            <div class="titulo"><input asp-for="Titulo" type="text" name="Titulo" value="@Model.Titulo" placeholder="Titulo" id=""></div>
 
                         </div>
 
                         <div class="header" style="justify-content:center;">
-                            <div class="area"><input type="text" placeholder="Area" name="" id=""></div>
+                            <div class="area"><input type="text" asp-for="Area" placeholder="Area" name="Area" value="@Model.Area" id=""></div>
                         </div>
                         <hr>
                         <div class="grid_editPubli">
                             <div class="jornada">
                                 <h4>Jornada:</h4>
-                                <select name="" id="">
-                                    <option value="">Tipo de Jornada</option>
+                                <select name="TipoJornada" id="" asp-for="TipoJornada">
+                                    <option value="No especificado">Tipo de Jornada</option>
+                                    <option value="Completa">Completa</option>
+                                    <option value="Part-Time">Part-Time</option>
+
+
                                 </select>
                             </div>
 
                             <div class="ubicacion">
-                                <h4>Ubicacion:</h4> <input type="text" name="ubicacion">
+                                <h4>Ubicacion:</h4> <input asp-for="Ubicacion" type="text" name="Ubicacion">
                             </div>
                         </div>
                         <div class="descripcion">
                             <h4>Descripcion:</h4>
                             <div class="text">
-                                <textarea name="" id="" cols="100%" rows="10"></textarea>
+                               <textarea asp-for="Descripcion" name="Descripcion" id="" cols="100%" rows="10"></textarea>
                             </div>
                         </div>
                         <footer class="grid2">
 
                             <div class="grid_editPubli">
                                 <div class="contrato">
-                                    <h4> Tipo Contrato:</h4> <select name="" id="">
-                                        <option value="">Tipo de Contrato</option>
+                                    <h4> Tipo Contrato:</h4> <select asp-for="TipoContrato" name="TipoContrato" id="">
+                                        <option value="No especificado">Tipo de Contrato</option>
+                                        <option value="Por obra/Faena">Por obra/Faena</option>
+                                        <option value="Indefinido">Indefinido</option>
+                                        <option value="Plazo Fijo">Plazo Fijo</option>
+                                        <span asp-validation-for="TipoContrato" class="text-danger"></span>
+
                                     </select>
                                 </div>
                                 <div class="experiencia">
-                                    <h4>Experiencia:</h4> <input type="number"
-                                        placeholder="Años de experiencia requeridos" name="" id="">
+                                    <h4>Experiencia:</h4> 
+                                    <input type="number" asp-for="Experiencia" placeholder="Años de experiencia requeridos" name="Experiencia" id="">
                                 </div>
                                 <div class="vacantes">
-                                    <h4>Vacantes:</h4> <input type="number">
+                                    <h4>Vacantes:</h4> <input name="NumeroVacantes" asp-for="NumeroVacantes" type="number">
                                 </div>
-                                <div class="educacion">
-                                    <h4>Nivel de Educacion:</h4> <select name="" id="">
-                                        <option value="">Nivel de educacion</option>
-                                    </select>
-                                </div>
+                                
                                 <div class="sueldo">
-                                    <h4>Sueldo:</h4> <input type="number" name="" placeholder="$" id="">
+                                    <h4>Sueldo:</h4> <input asp-for="Sueldo" type="number" name="Sueldo" placeholder="$" id="">
                                 </div>
                                 <div></div>
                                 <div></div>
@@ -120,7 +130,7 @@ Layout = null;
 
                     </div>
                     <div class="flexfoot">
-                        <a href="">Descartar Cambios</a>
+                        <a asp-action="ViewPublicaciones" asp-controller="Empresa">Descartar Cambios</a>
 
                         <button type="submit">Guardar Cambios</button>
                     </div>

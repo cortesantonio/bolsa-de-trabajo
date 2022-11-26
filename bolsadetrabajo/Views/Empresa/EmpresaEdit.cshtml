@@ -1,9 +1,9 @@
-@model bolsadetrabajo.Models.Empresa;
-
-
 @{
-    Layout = null;
+Layout = null;
 }
+@model bolsadetrabajo.Models.Empresa
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +26,9 @@
             <div class="acciones">
 
                 <a href="">Inicio</a>
-                <a asp-action="Create">Publicar Anuncio</a>
+                <a href="">Publicar Anuncio</a>
 
-                <a asp-controller="Auth" style="background-color: transparent;color:white;" asp-action="LogOut" class="dropdown-item">Cerrar Sesion</a>
+                <a href="" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -43,55 +43,68 @@
         </svg>
     </div>
     <div class="container">
-        <h2>@Model.RazonSocial.</h2>
+
+        <h2>@Model.RazonSocial</h2>
+        
         <div class="grid">
             <aside>
-                <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
-                <a asp-action="ViewPublicaciones" asp-controller="Empresa"><i class="fa-solid fa-list-ul"></i></a>
+                <a href=""><i class="fa-regular fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-list-ul"></i></a>
             </aside>
             <main>
                 <div class="flex">
                     <div class="titulo">
-                        <h3>Informacion de Empresa</h3>
+                        <h3>
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        Informacion de Empresa</h3>
                     </div>
-                    
-                        <div class="edit"> <a asp-action="EmpresaEdit"><i class="fa-regular fa-pen-to-square"></i></a> </div>
-
-                    
                 </div>
+                <form asp-action="EmpresaEditar" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="idEmpresa" value="@Model.idEmpresa" />
+
                 <div class="gridinfo">
                     <div class="nombrecompleto">
                         <h5>Razon Social</h5>
-                        <p>@Model.RazonSocial</p>
+                            <p> <input type="text" asp-for="RazonSocial" value="@Model.RazonSocial" name="RazonSocial" id=""></p>
                     </div>
                     <div class="email">
                         <h5>Email:</h5>
-                        <p>@Model.Email</p>
+                            <p> <input type="email" asp-for="Email" value="@Model.Email" name="Email" id=""></p>
                     </div>
                     <div class="representante">
                         <h5>Representante:</h5>
-                        <p>@Model.NombreRepresentante</p>
+                            <p> <input type="text" asp-for="NombreRepresentante" value="@Model.NombreRepresentante" name="NombreRepresentante" id=""></p>
                     </div>
                     <div class="rutrepresentante">
                         <h5>RUT de Representante:</h5>
-                        <p>@Model.RutRepresentante</p>
+                            <p> <input type="text" asp-for="RutRepresentante" value="@Model.RutRepresentante" name="RutRepresentante" id=""></p>
                     </div>
                     <div class="rut">
                         <h5>RUT:</h5>
-                        <p>@Model.Rut</p>
+                            <p> <input type="text" asp-for="Rut" value="@Model.Rut" name="Rut" id=""></p>
                     </div>
                     <div class="contacto">
                         <h5>Numero de Contacto:</h5>
-                        <p>@Model.NumeroContacto</p>
+                            <p> <input type="number" asp-for="NumeroContacto" value="@Model.NumeroContacto" name="NumeroContacto" id=""></p>
                     </div>
                     <div class="direccion">
                         <h5>Direccion:</h5>
-                        <p>@Model.Direccion</p>
+                            <p> <input type="text" asp-for="Direccion" value="@Model.Direccion" name="Direccion" id=""></p>
                     </div>
+                    
                 </div>
+                <div class="flex">
+                    <a asp-action="Index">Cancelar</a>
+                    <a asp-action="EditPassword" style="background-color:transparent; color:black; cursor:pointer; border:1px solid;">Cambiar Contrasena</a>
+
+                    <button type="submit">Guardar Cambios</button>
+                </div>
+                </form>
 
             </main>
         </div>
+        
     </div>
     <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg"
             class="transition duration-300 ease-in-out delay-150">

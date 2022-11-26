@@ -1,21 +1,26 @@
 ﻿using bolsadetrabajo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace bolsadetrabajo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AppDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+        private readonly AppDbContext _context;
+
+     
 
         public IActionResult Index()
         {
-            return View();
+            var publi = _context.Publicacion
+               .Include(p => p.Empresa).Take(3).OrderByDescending(p => p.Fecha).ToList();
+
+            return View(publi);
         }
 
         public IActionResult Privacy()

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace bolsadetrabajo.Controllers
 {
@@ -39,25 +40,36 @@ namespace bolsadetrabajo.Controllers
         }
 
         [HttpPost]
-        public IActionResult TrabajadorEditar(Trabajador T)
+        public async Task<IActionResult> TrabajadorEditar(Trabajador T)
         {
 
-            if (ModelState.IsValid)
-            {
+            var u = _context.Trabajador.FirstOrDefault(u => u.idTrabajador.Equals(T.idTrabajador));
+            if (u == null) { return NotFound(); };
 
-                _context.Trabajador.Update(T);
-                _context.SaveChanges();
-                
-                return RedirectToAction("Index", "Trabajador"); 
-            }
+            u.Nombre = T.Nombre;
 
-            else
-            {
-                ModelState.AddModelError("", "Ha Ocurrido un Error!");
-                return RedirectToAction("TrabajadorEdit", "Trabajador");
-            }
-            
+            u.Email = T.Email;
+            u.FechaNacimiento = T.FechaNacimiento;
+            u.NumeroContacto = T.NumeroContacto;
+            u.Sexo = T.Sexo;
+            u.Profesion = T.Profesion;
+            u.Direccion = T.Direccion;
+
+            _context.Update(u);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
+        
+        public ActionResult EditPassword()
+        {
+            var t = _context.Trabajador.Where(c => c.Email.Equals(User.Identity.Name)).FirstOrDefault();
+            ViewBag.nombre = t.Nombre;
+            ViewBag.id = t.idTrabajador;
+
+            return View();
+        }
+
+
 
     }
 }

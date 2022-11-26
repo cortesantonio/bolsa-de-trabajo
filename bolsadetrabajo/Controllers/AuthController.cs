@@ -232,10 +232,56 @@ namespace bolsadetrabajo.Controllers
 
 
 
+        [HttpPost]
+        public async Task<IActionResult> EditarPasswordTrabajador(int id, string actualPassword, string newPassword)
+        {
+
+            var u = _context.Trabajador.FirstOrDefault(u => u.idTrabajador.Equals(id));
+            if (u == null) { return NotFound(); };
+            if (VerificarPass(actualPassword, u.PasswordHash, u.PasswordSalt))
+            {
+                CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+
+                u.PasswordHash = passwordHash;
+                u.PasswordSalt = passwordSalt;
+                _context.Update(u);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index","Trabajador");
+
+            }
+            else
+            {
+                return RedirectToAction("EditPassword", "Trabajador");
+            }
 
 
+        }
+        
+
+        [HttpPost]
+        public async Task<IActionResult> EditarPasswordEmpresa(int id, string actualPassword, string newPassword)
+        {
+
+            var u = _context.Empresa.FirstOrDefault(u => u.idEmpresa.Equals(id));
+            if (u == null) { return NotFound(); };
+            if (VerificarPass(actualPassword, u.PasswordHash, u.PasswordSalt))
+            {
+                CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+
+                u.PasswordHash = passwordHash;
+                u.PasswordSalt = passwordSalt;
+                _context.Update(u);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Empresa");
+
+            }
+            else
+            {
+                return RedirectToAction("EditPassword","Empresa");
+            }
 
 
+        }
 
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
