@@ -25,10 +25,10 @@ Layout = null;
             <div class="logo"><img src="~/img/logo.png" width="120px" alt=""></div>
             <div class="acciones">
 
-                <a href="">Inicio</a>
-                <a href="">Publicar Anuncio</a>
+                <a asp-action="Index" asp-controller="Home">Inicio</a>
+                <a asp-action="Create">Publicar Anuncio</a>
 
-                <a href="" style="background-color: transparent;color:white;">Cerrar Sesion</a>
+                <a asp-action="LogOut" asp-controller="Auth" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -48,8 +48,8 @@ Layout = null;
         
         <div class="grid">
             <aside>
-                <a href=""><i class="fa-regular fa-user"></i></a>
-                <a href=""><i class="fa-solid fa-list-ul"></i></a>
+                <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
+                <a asp-action="ViewPublicaciones"><i class="fa-solid fa-list-ul"></i></a>
             </aside>
             <main>
                 <div class="flex">

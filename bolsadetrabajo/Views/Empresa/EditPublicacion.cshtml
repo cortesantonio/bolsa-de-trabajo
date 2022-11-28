@@ -46,8 +46,8 @@ Layout = null;
         <h2>@ViewBag.empresaNombre</h2>
         <div class="grid">
             <aside>
-                <a href=""><i class="fa-regular fa-user"></i></a>
-                <a href=""><i class="fa-solid fa-list-ul"></i></a>
+                <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
+                <a asp-action="ViewPublicaciones"><i class="fa-solid fa-list-ul"></i></a>
             </aside>
             <main>
                 <form asp-action="EditarPublicacion" asp-controller="Publicacion" method="post">

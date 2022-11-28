@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>@Model.Titulo - Bolsa de Trabajo</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
             </form>
         </div>
         <div class="accesoLogin">
-            <a href="login.html">
+            <a asp-action=LoginIn asp-controller="Auth">
                 <i class="fa-regular fa-user"></i>
             </a>
         </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="backButton">
-        <a href="index.html">
+        <a asp-action="Index">
             <i class="fa-solid fa-chevron-left"></i>
             Volver Atras
         </a>
@@ -83,9 +83,9 @@
 
             <div class="grid">
                 <div class="contrato"><h4> Tipo Contrato:</h4> @Model.TipoContrato</div>
-                <div class="experiencia"><h4>Experiencia:</h4> +@Model.Experiencia anos </div>
+                <div class="experiencia"><h4>Experiencia:</h4> +@Model.Experiencia años. </div>
                 <div class="vacantes"><h4>Vacantes:</h4> @Model.NumeroVacantes</div>
-                <div class="sueldo"><h4>Sueldo:</h4> @Model.Sueldo</div>
+                <div class="sueldo"><h4>Sueldo:</h4> $@Model.Sueldo</div>
                 <div></div>
                 <div></div>
             </div>

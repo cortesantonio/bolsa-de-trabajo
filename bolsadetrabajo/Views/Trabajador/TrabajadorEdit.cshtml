@@ -23,8 +23,8 @@ Layout = null;
         <div class="nav">
             <div class="logo"><img src="~/img/logo.png" width="120px" alt=""></div>
             <div class="acciones">
-                <a href="">Inicio</a>
-                <a href="" style="background-color: transparent;color:white;">Cerrar Sesion</a>
+                <a asp-action="Index" asp-controller="Home">Inicio</a>
+                <a asp-action="LogOut" asp-controller="Auth" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -43,7 +43,7 @@ Layout = null;
         <h2>@Model.Nombre, edad.</h2>
         <div class="grid">
             <aside>
-                <a href=""><i class="fa-regular fa-user"></i></a>
+                <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
                 <a href=""><i class="fa-regular fa-heart"></i></a>
             </aside>
             <main>
