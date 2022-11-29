@@ -14,7 +14,7 @@ namespace bolsadetrabajo.Controllers
             _context = context;
         }
         // GET: PublicacionController
-        public ActionResult Index(int Id)
+        public ActionResult anuncio(int Id)
         {
             var P = _context.Publicacion.Find(Id);
             if (P == null)
@@ -30,6 +30,15 @@ namespace bolsadetrabajo.Controllers
 
                 return View(publi);
             }
+        }
+
+        public ActionResult catalogo()
+        {
+            
+            var publi = _context.Publicacion.Include(p => p.Empresa).ToList();
+
+            return View(publi);
+            
         }
 
         [HttpPost]

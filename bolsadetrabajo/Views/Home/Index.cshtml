@@ -97,11 +97,11 @@ Layout=null;
 
                     </div>
 
-                    <a href="">Ver mas</a>
+                    <a asp-action="anuncio" asp-controller="Publicacion" asp-route-Id="@item.idPublicacion">Ver mas</a>
                 </div>
                 }
 
-                <a    >Ver mas Publicaciones</a>
+                <a   asp-action="catalogo" asp-controller="Publicacion" >Ver mas Publicaciones</a>
             </div>
         </div>
         <footer>

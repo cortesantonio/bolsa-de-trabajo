@@ -199,8 +199,15 @@ namespace bolsadetrabajo.Controllers
 
         }
 
+        public IActionResult AccessDenied()
 
+        {
+ 
+          return View();
 
+            
+        }
+        
         [HttpPost]
         public IActionResult RegistrarEmpresa(string CorreoEmpresa_reg, string RazonSocialEmpresa_reg, string RutRepresentanteEmpresa_reg, string PasswordEmpresa_reg)
         {
