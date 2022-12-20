@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bolsadetrabajo.Models;
 
@@ -11,9 +12,11 @@ using bolsadetrabajo.Models;
 namespace bolsadetrabajo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221219015508_tbl_stats")]
+    partial class tblstats
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,17 +218,25 @@ namespace bolsadetrabajo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("PublicacionId")
+                    b.Property<string>("PublicacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PublicacionidPublicacion")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrabajadorId")
+                    b.Property<string>("TrabajadorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TrabajadoridTrabajador")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PublicacionId");
+                    b.HasIndex("PublicacionidPublicacion");
 
-                    b.HasIndex("TrabajadorId");
+                    b.HasIndex("TrabajadoridTrabajador");
 
                     b.ToTable("VisitasPublicacion");
                 });
@@ -281,15 +292,11 @@ namespace bolsadetrabajo.Migrations
                 {
                     b.HasOne("bolsadetrabajo.Models.Publicacion", "Publicacion")
                         .WithMany()
-                        .HasForeignKey("PublicacionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PublicacionidPublicacion");
 
                     b.HasOne("bolsadetrabajo.Models.Trabajador", "Trabajador")
                         .WithMany()
-                        .HasForeignKey("TrabajadorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TrabajadoridTrabajador");
 
                     b.Navigation("Publicacion");
 

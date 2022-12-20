@@ -56,12 +56,15 @@
                 </div>
                 <div class="gridPublicaciones" style="gap:10px;">
                     @foreach (var item in Model){
-                    <div class="card">
+                    <div class="card" >
                         <div class="info">
                             <div class="fecha">@item.Fecha</div>
                             <div class="titulo">@item.Titulo</div>
                             <div class="descripcion">@item.Descripcion</div>
                         </div>
+                        
+                            
+
                         <div class="acciones">
                             <a asp-action="anuncio" asp-controller="Publicacion" asp-route-Id="@item.idPublicacion">Ver Anuncio</a>
                                 <a asp-action="EditPublicacion" asp-route-Id="@item.idPublicacion">Editar</a>

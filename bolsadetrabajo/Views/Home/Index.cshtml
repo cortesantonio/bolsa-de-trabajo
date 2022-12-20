@@ -34,20 +34,13 @@ Layout=null;
             </nav>
             <div class="grid">
                 <div class="grid1">
-                    <h2>Lorem, ipsum dolor.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <form action="" method="get">
+                    <h2>Bolsa De Trabajo</h2>
+                    <p>Busca el trabajo que mas te acomode aqui.</p>
+                    <form asp-action="catalogo" asp-controller="Publicacion" method="get">
                         <div class="flexform">
                             <input type="text" placeholder="Buscador de Empleos..." name="busqueda" id="">
-                            <select name="Localidad" id="">
-                                <option value="0">Localidad</option>
-                            </select>
-                            <select name="Requerimientos" id="">
-                                <option value="0">Requerimientos</option>
-                            </select>
-                            <select name="Ocupacion" id="">
-                                <option value="0">Ocupacion</option>
-                            </select>
+                        
+                            
                         </div>
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>

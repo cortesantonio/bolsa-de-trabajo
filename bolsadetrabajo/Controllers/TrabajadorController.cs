@@ -70,6 +70,19 @@ namespace bolsadetrabajo.Controllers
         }
 
 
+        public ActionResult Favoritas()
+        {
+            var trabajador = _context.Trabajador
+                .Where(x => x.Email.Equals(User.Identity.Name))
+                .FirstOrDefault();
+
+            var id = trabajador.idTrabajador;
+            ViewBag.Nombre = trabajador.Nombre;
+
+            return View(_context.PublicacionGuardada.Include(p => p.Publicacion.Empresa )
+                .Where(x => x.TrabajadorId.Equals(id)).ToList() );
+        }
+
 
     }
 }

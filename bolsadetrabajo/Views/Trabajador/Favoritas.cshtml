@@ -1,10 +1,7 @@
-@model bolsadetrabajo.Models.Trabajador;
-
-
+@model List<PublicacionGuardada>
 @{
-    Layout = null;
+Layout = null;
 }
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +24,7 @@
             <div class="logo"><img src="~/img/logo.png" width="120px" alt=""></div>
             <div class="acciones">
                 <a asp-action="Index" asp-controller="Home">Inicio</a>
-                <a asp-controller="Auth" style="background-color: transparent;color:white;" asp-action="LogOut" class="dropdown-item">Cerrar Sesion</a>
+                <a asp-action="LogOut" asp-controller="Auth" style="background-color: transparent;color:white;">Cerrar Sesion</a>
             </div>
         </div>
         <div class="imgusuario">
@@ -42,49 +39,57 @@
         </svg>
     </div>
     <div class="container">
-        <h2> @Model.Nombre.</h2>
+        <h2>@ViewBag.Nombre</h2>
         <div class="grid">
             <aside>
                 <a asp-action="Index"><i class="fa-regular fa-user"></i></a>
-                <a  asp-action="Favoritas"><i class="fa-regular fa-heart"></i></a>
+                <a asp-action="Favoritas"><i class="fa-regular fa-heart"></i></a>
             </aside>
             <main>
                 <div class="flex">
                     <div class="titulo">
-                        <h3>Informacion Personal</h3>
-                    </div>
-                    <div class="edit"> <a asp-action="TrabajadorEdit"><i class="fa-regular fa-pen-to-square"></i></a> </div>
-                </div>
-                <div class="gridinfo">
-                    <div class="nombrecompleto">
-                        <h5>Nombre Completo:</h5>
-                        <p>@Model.Nombre</p>
-                    </div>
-                    <div class="email">
-                        <h5>Email:</h5>
-                        <p>@Model.Email</p>
-                    </div>
-                    <div class="nacimiento">
-                        <h5>Fecha de Nacimiento:</h5>
-                        <p>@Model.FechaNacimiento</p>
-                    </div>
-                    <div class="numero">
-                        <h5>Numero de Contacto:</h5>
-                        <p>@Model.NumeroContacto</p>
-                    </div>
-                    <div class="sexo">
-                        <h5>Sexo:</h5>
-                        <p>@Model.Sexo</p>
-                    </div>
-                    <div class="profesion">
-                        <h5>Profesion:</h5>
-                        <p>@Model.Profesion</p>
-                    </div>
-                    <div class="direccion">
-                        <h5>Direccion:</h5>
-                        <p>@Model.Direccion</p>
+                        <h3>Anuncios Guardados</h3>
                     </div>
                 </div>
+                <div class="gridsave">
+
+                   
+                    @foreach(var item in Model){
+
+                    <div class="card">
+                        <div class="flex">
+                            <div class="fecha">@item.Publicacion.Fecha</div>
+                            <div class="borrar">
+
+                                <a asp-action="delFav" asp-controller="Publicacion" asp-route-idAnuncio="@item.PublicacionId">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="info">
+                                <h5>
+                                    @item.Publicacion.Titulo
+
+                                </h5>
+                                <p>
+                                        @item.Publicacion.Area
+
+                                </p>
+                                <p>
+                                     @item.Publicacion.Empresa.RazonSocial
+
+
+                                </p>
+                            </div>
+                            <div class="acciones">
+                                <a asp-action="anuncio" asp-controller="Publicacion" asp-route-Id="@item.PublicacionId" >Ver Anuncio</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
 
             </main>
         </div>
@@ -100,7 +105,6 @@
                 stroke="none" stroke-width="0" fill="#fca311" fill-opacity="1"
                 class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
         </svg>
-        
 </body>
 
 </html>
